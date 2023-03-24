@@ -21,7 +21,7 @@ def create_user():
     password = request.json['password']
 
     cursor = mysql.connection.cursor()
-    user = cursor.execute('''
+    cursor.execute('''
     INSERT INTO users (name, email, password)
     VALUES (%s, %s, %s)
     ''', (name, email, password))
